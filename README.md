@@ -1,2 +1,2 @@
-# Raspberry Pi Python Projects _Python_Projects
-Just some fun Python scripts for interacting with a Raspberry Pi
+# Raspberry Pi Python Projects
+Just a collection of some fun Python scripts for I've made for interacting with my Raspberry Pi
