@@ -1,25 +1,18 @@
-import RPi.GPIO as GPIO
-import time
+from gpiozero import LED
+from time import sleep
 
 SLEEP_TIME = .25 # 250 milliseconds 
 
-red_led = 11
-blue_led = 18
-green_led = 32
+red_led = LED( 23 )
+blue_led = LED( 16 )
+green_led = LED( 17 )
 
-led_list = [red_led, blue_led, green_led]
-
-GPIO.setmode( GPIO.BOARD )
-GPIO.setup( led_list, GPIO.OUT )
-GPIO.setwarnings( False )
+led_list = ( red_led, blue_led, green_led )
 
 for i in range( 0, 10 ):
-    GPIO.output( led_list, (GPIO.HIGH, GPIO.LOW, GPIO.LOW) )
-    time.sleep( SLEEP_TIME )
-    GPIO.output( led_list, (GPIO.LOW, GPIO.HIGH, GPIO.LOW) )
-    time.sleep( SLEEP_TIME )
-    GPIO.output( led_list, (GPIO.LOW, GPIO.LOW, GPIO.HIGH) )
-    time.sleep( SLEEP_TIME )
+    for j in range( 0, len( led_list ) ):
+        led_list[j].on()
+        sleep( SLEEP_TIME )
+        led_list[j].off()
 
-GPIO.cleanup();
 print( 'Done!' )

@@ -9,7 +9,7 @@ def pressed( button ):
 
 # GPIO components
 led = LED( 17 )
-button = Button( 14 )
+button = Button( 26 )
 button.when_pressed = pressed
 
 while input('') != 'q':
